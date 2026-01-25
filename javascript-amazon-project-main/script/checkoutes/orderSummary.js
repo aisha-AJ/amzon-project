@@ -7,7 +7,7 @@ import { renderPaymentSummary } from "./paymentSummary.js";
 
 
 
-export function renderOderSummary() {
+export function renderOrderSummary() {
 
 
   let cartSummaryHTML ='';
@@ -41,6 +41,7 @@ export function renderOderSummary() {
       
       cartSummaryHTML += `
       <div class="cart-item-container
+      js-cart-item-container
       js-cart-item-container-${matchingProduct.id}">
             <div class="delivery-date">
                 Delivery date: ${dateString}
@@ -57,7 +58,7 @@ export function renderOderSummary() {
                   <div class="product-price">
                     $${formatCurrency(matchingProduct.priceCents)}
                   </div>
-                  <div class="product-quantity">
+                  <div class="product-quantity js-product-quantity-${matchingProduct.id}">
                     <span>
                       Quantity: <span class="quantity-label">${cartItem.quantity}</span>
                     </span>
@@ -65,7 +66,9 @@ export function renderOderSummary() {
                       Update
                     </span>
                     <span class="delete-quantity-link link-primary 
-                    js-delete-link" data-product-id="${matchingProduct.id}">
+                    js-delete-link
+                    js-delete-link" data-product-id="${matchingProduct.id}"
+                    data-product-id="${matchingProduct.id}">
                       Delete
                     </span>
                   </div>
@@ -153,7 +156,7 @@ export function renderOderSummary() {
     element.addEventListener('click', () => {
       const {productId, deliveryOptionId} = element.dataset;
       updateDeliveryOption(productId, deliveryOptionId);
-      renderOderSummary();
+      renderOrderSummary();
 
       renderPaymentSummary();
     });
