@@ -58,6 +58,10 @@ import { formatCurrency } from "../script/utils/money.js";
     }
 
   }
+
+ // const date = new Date();
+ // console.log(date);
+ // console.log(date.toLocaleTimeString());
   
 
   export const products = [
