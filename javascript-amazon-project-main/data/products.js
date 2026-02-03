@@ -70,22 +70,22 @@ export function loadProducts(fun) {
 
   xhr.addEventListener('load', () => {
     products =JSON.parse(xhr.response).map((productDetails) => {
-  if (productDetails.type === 'clothing') {
-    return new Clothing(productDetails);
-  }
+      if (productDetails.type === 'clothing') {
+        return new Clothing(productDetails);
+      }
 
-  return new product(productDetails);
- });
- console.log('load Products');
- fun();  
+      return new product(productDetails);
+    });
+    console.log('load Products');
+    fun();  
  
 
-});
+  });
 
 
 
-xhr.open('GET', 'https://supersimplebackend.dev/products');
-xhr.send();
+ xhr.open('GET', 'https://supersimplebackend.dev/products');
+ xhr.send();
 }
 
   
